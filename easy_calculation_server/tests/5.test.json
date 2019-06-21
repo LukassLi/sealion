@@ -1,0 +1,330 @@
+{
+  "input": "278+463+122+37",
+  "comment": "",
+  "scenes": [
+    {
+      "id": 0,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "add_tokens",
+          "value": [
+            "278",
+            "+",
+            "463",
+            "+",
+            "122",
+            "+",
+            "37"
+          ]
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 1,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "start_explain",
+          "speech": "这题，我们计算的是"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 2,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            0
+          ],
+          "speech": "278"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 3,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            1,
+            2
+          ],
+          "speech": "加463"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 4,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            3,
+            4
+          ],
+          "speech": "加122"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 5,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            5,
+            6
+          ],
+          "speech": "加37"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 6,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "magnifier",
+          "speech": "计算前[p0]我们首先观察一下算式的特点"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "scene": "expression_feature",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            1,
+            3,
+            5
+          ],
+          "text": "连续加法",
+          "speech": "首先注意到，它是一个连续加法运算[p300]"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "scene": "number_feature",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            0,
+            4
+          ],
+          "calc": "400",
+          "speech": "并且，这两个数[p0]278[p0]如果加上122[p0]结果刚好是400[p300]"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "scene": "number_feature",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            2,
+            6
+          ],
+          "calc": "500",
+          "speech": "而这两个数[p0]463[p0]如果加上37[p0]结果刚好是500[p300]"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "question",
+          "speech": "掌握这个信息，有什么用呢？"
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 11,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "move",
+          "to_tokens": [
+            "278",
+            "+",
+            "122",
+            "+",
+            "463",
+            "+",
+            "37"
+          ],
+          "move_indexes": [
+            {
+              "from": [
+                3,
+                4
+              ],
+              "to": [
+                1,
+                2
+              ]
+            },
+            {
+              "from": [
+                1,
+                2
+              ],
+              "to": [
+                3,
+                4
+              ]
+            }
+          ],
+          "speech": "我们可以带着符号搬家，将算式写成这样"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "explain",
+          "highlight_indexes": [],
+          "text": [
+            "连续加法运算",
+            "先加后加没有区别"
+          ],
+          "speech": "因为连续加法运算时，先加[p0]还是后加[p0]没有区别。这两个算式的结果是一样的"
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 13,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "add_parenthesis",
+          "to_tokens": [
+            "(",
+            "278",
+            "+",
+            "122",
+            ")",
+            "+",
+            "(",
+            "463",
+            "+",
+            "37",
+            ")"
+          ],
+          "parenthesis": [
+            {
+              "indexes": [
+                0,
+                4
+              ]
+            },
+            {
+              "indexes": [
+                6,
+                10
+              ]
+            }
+          ],
+          "speech": "我们再在算式中添加一下括号，就能得到这样的算式。"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 14,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "wait_calc",
+          "speech": "现在，你能不动笔，就口算出来吗？"
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 15,
+      "scene": "calculation",
+      "animations": [
+        {
+          "type": "step_calc",
+          "to_tokens": [
+            "400",
+            "+",
+            "(",
+            "463",
+            "+",
+            "37",
+            ")"
+          ],
+          "from_indexes": [
+            1,
+            3
+          ],
+          "to_index": 0,
+          "speech": "我们先计算278，加上122，答案是400"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "scene": "calculation",
+      "animations": [
+        {
+          "type": "step_calc",
+          "to_tokens": [
+            "400",
+            "+",
+            "500"
+          ],
+          "from_indexes": [
+            3,
+            5
+          ],
+          "to_index": 2,
+          "speech": "再计算463，加上37，求出来是500"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "scene": "calculation",
+      "animations": [
+        {
+          "type": "step_calc",
+          "to_tokens": [
+            "900"
+          ],
+          "from_indexes": [
+            0,
+            2
+          ],
+          "to_index": 0,
+          "speech": "最后求得，答案是900"
+        }
+      ]
+    }
+  ]
+}

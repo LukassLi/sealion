@@ -1,0 +1,272 @@
+{
+  "input": "(4×3.78)×0.25",
+  "comment": "https://github.com/flickering/animation_editor/issues/24",
+  "scenes": [
+    {
+      "id": 0,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "add_tokens",
+          "value": [
+            "(",
+            "4",
+            "×",
+            "3.78",
+            ")",
+            "×",
+            "0.25"
+          ]
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 1,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "start_explain",
+          "speech": "这题，我们计算的是"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 2,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            0
+          ],
+          "speech": "括号"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 3,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            1
+          ],
+          "speech": "4"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 4,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            2,
+            3
+          ],
+          "speech": "乘以3.78"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 5,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            4
+          ],
+          "speech": "反括号"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 6,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            5,
+            6
+          ],
+          "speech": "乘以0.25"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 7,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "magnifier",
+          "speech": "计算前[p0]我们首先观察一下算式的特点"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "scene": "expression_feature",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            0,
+            4
+          ],
+          "speech": "首先注意到，它是一个含括号的算式[p300]"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "scene": "number_feature",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            1,
+            6
+          ],
+          "calc": "1",
+          "speech": "这两个数[p0]4[p0]如果乘以0.25[p0]结果刚好是1[p300]"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "question",
+          "speech": "掌握这个信息，有什么用呢？"
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 11,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "remove_parenthesis",
+          "to_tokens": [
+            "4",
+            "×",
+            "3.78",
+            "×",
+            "0.25"
+          ],
+          "parenthesis": [
+            {
+              "indexes": [
+                0,
+                4
+              ]
+            }
+          ],
+          "speech": "既然括号妨碍了这两个数进行计算，我们就把它去掉[p300]注意到括号前面什么都没有[p300]所以括号内的符号维持原状。"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 12,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "move",
+          "to_tokens": [
+            "4",
+            "×",
+            "0.25",
+            "×",
+            "3.78"
+          ],
+          "move_indexes": [
+            {
+              "from": [
+                1,
+                2
+              ],
+              "to": [
+                3,
+                4
+              ]
+            },
+            {
+              "from": [
+                3,
+                4
+              ],
+              "to": [
+                1,
+                2
+              ]
+            }
+          ],
+          "speech": "我们可以带着符号搬家，将算式写成这样"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "wait_calc",
+          "speech": "现在，你能不动笔，就口算出来吗？"
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 14,
+      "scene": "calculation",
+      "animations": [
+        {
+          "type": "step_calc",
+          "to_tokens": [
+            "1",
+            "×",
+            "3.78"
+          ],
+          "from_indexes": [
+            0,
+            2
+          ],
+          "to_index": 0,
+          "speech": "我们先计算4乘以0.25[p300]答案是1"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "scene": "calculation",
+      "animations": [
+        {
+          "type": "step_calc",
+          "to_tokens": [
+            "3.78"
+          ],
+          "from_indexes": [
+            0,
+            2
+          ],
+          "to_index": 0,
+          "speech": "再计算1乘以3.78就求出来[p300]答案是3.78"
+        }
+      ]
+    }
+  ]
+}
