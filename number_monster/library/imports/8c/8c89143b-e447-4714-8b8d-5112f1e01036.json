@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "crazy_gamefit",
+    "texture": "c0babc2f-b4f6-4854-8583-aae143fb9135",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      87,
+      1280
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      87,
+      1280
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

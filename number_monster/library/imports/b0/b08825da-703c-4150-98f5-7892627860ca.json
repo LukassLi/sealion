@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_monster",
+    "texture": "0c47da9f-79a0-49d5-bf64-dbe74ff01ce5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      85,
+      87
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      85,
+      87
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

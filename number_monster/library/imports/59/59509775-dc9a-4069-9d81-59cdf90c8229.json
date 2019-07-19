@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_charts_finish",
+    "texture": "beae99db-6c03-4a3f-9daf-0c35731f1331",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      200,
+      40
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      200,
+      40
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

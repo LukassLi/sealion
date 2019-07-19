@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "highlight_circle",
+    "texture": "78a81551-e3f1-4431-9c1b-345a37d57cfb",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      349,
+      348
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      349,
+      348
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

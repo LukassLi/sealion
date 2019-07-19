@@ -1,0 +1,428 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Begin_Clound01",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.0666666666666667,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "L_Cloud/cloud05": {
+        "props": {
+          "x": [
+            {
+              "frame": 0,
+              "value": -192
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": -192
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": -759
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.5,
+              "value": 255
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": 0
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.5,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.48,
+                "y": 1.48
+              }
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.33,
+                "y": 1.33
+              }
+            }
+          ]
+        }
+      },
+      "L_Cloud/cloud04": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.16666666666666666,
+              "value": -203.2,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.9,
+              "value": -628
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.6,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": -1.05,
+                "y": 1.05
+              }
+            },
+            {
+              "frame": 0.9,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": -0.87,
+                "y": 0.87
+              }
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.36666666666666664,
+              "value": 255
+            },
+            {
+              "frame": 0.9,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "L_Cloud/cloud03": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.13333333333333333,
+              "value": -133,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.7,
+              "value": -739
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.36666666666666664,
+              "value": 255
+            },
+            {
+              "frame": 0.7,
+              "value": 0
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.26666666666666666,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": -1.73,
+                "y": 1.73
+              }
+            },
+            {
+              "frame": 0.7,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": -1.39,
+                "y": 1.39
+              }
+            }
+          ]
+        }
+      },
+      "L_Cloud/cloud02": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.06666666666666667,
+              "value": -187,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.9666666666666667,
+              "value": -714
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.5333333333333333,
+              "value": 255
+            },
+            {
+              "frame": 0.9666666666666667,
+              "value": 0
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.6,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": -1.33,
+                "y": 1.33
+              }
+            },
+            {
+              "frame": 0.9666666666666667,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": -1.25,
+                "y": 1.25
+              }
+            }
+          ]
+        }
+      },
+      "L_Cloud/cloud01": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.1,
+              "value": -243,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.8,
+              "value": -664
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.4666666666666667,
+              "value": 255
+            },
+            {
+              "frame": 0.8,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "R_Cloud/clound06": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.16666666666666666,
+              "value": 201,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": 741
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.5,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.43,
+                "y": 1.43
+              }
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.26,
+                "y": 1.26
+              }
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.5,
+              "value": 255
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "R_Cloud/clound07": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.16666666666666666,
+              "value": 195,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 1.0666666666666667,
+              "value": 811
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.4,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.66,
+                "y": 1.66
+              }
+            },
+            {
+              "frame": 1.0666666666666667,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.41,
+                "y": 1.41
+              }
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.5,
+              "value": 255
+            },
+            {
+              "frame": 1.0666666666666667,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "R_Cloud/clound08": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.16666666666666666,
+              "value": 251.1
+            },
+            {
+              "frame": 0.7333333333333333,
+              "value": 584
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.5,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": -0.83,
+                "y": 0.83
+              }
+            },
+            {
+              "frame": 0.7333333333333333,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": -0.78,
+                "y": 0.78
+              }
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.4,
+              "value": 255
+            },
+            {
+              "frame": 0.7333333333333333,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "R_Cloud/clound09": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.1,
+              "value": 148,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 1,
+              "value": 700
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.7,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.35,
+                "y": 1.35
+              }
+            },
+            {
+              "frame": 1,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.21,
+                "y": 1.21
+              }
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.4,
+              "value": 255
+            },
+            {
+              "frame": 1,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "R_Cloud/clound10": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.16666666666666666,
+              "value": 173
+            },
+            {
+              "frame": 0.8666666666666667,
+              "value": 683
+            }
+          ],
+          "scale": [
+            {
+              "frame": 0.4666666666666667,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.28,
+                "y": 1.28
+              }
+            },
+            {
+              "frame": 0.8,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.13,
+                "y": 1.13
+              }
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.4,
+              "value": 255
+            },
+            {
+              "frame": 0.8,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

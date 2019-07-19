@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "69104c1f-52ff-4813-ae59-ad282071edc9",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "crazyball_05_body01": {
+      "ver": "1.0.4",
+      "uuid": "6b8cfed4-d518-421f-9b91-86f83750642d",
+      "rawTextureUuid": "69104c1f-52ff-4813-ae59-ad282071edc9",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 225,
+      "height": 224,
+      "rawWidth": 225,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
