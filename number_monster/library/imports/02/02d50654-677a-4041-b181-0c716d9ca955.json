@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ball_06_die",
+    "texture": "41f73acd-8e61-45b0-bd74-d4e7e5ae7b74",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      46,
+      46
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      46,
+      46
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

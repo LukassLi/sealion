@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_star",
+    "texture": "0bea4ee0-9cf4-4b43-a531-8790a794de3e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      84,
+      87
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      84,
+      87
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

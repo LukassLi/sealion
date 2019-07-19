@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "preLoad",
+    "texture": "a817bc5b-2c60-4d1c-9dea-4678e841a6b9",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      681,
+      499
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      681,
+      499
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

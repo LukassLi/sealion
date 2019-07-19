@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "crazyball_05_shadow",
+    "texture": "95ac4539-e48d-4b4a-ab68-0742b887030d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      251,
+      252
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      251,
+      252
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

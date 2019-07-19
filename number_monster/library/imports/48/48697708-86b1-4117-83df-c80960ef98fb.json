@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "crazy_top",
+    "texture": "8d70ee2d-0a64-45e3-82cd-cded3aa3635a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      720,
+      176
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      720,
+      176
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      67
+    ]
+  }
+}

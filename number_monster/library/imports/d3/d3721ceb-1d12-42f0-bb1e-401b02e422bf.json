@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_revival",
+    "texture": "b3e37252-a91d-4447-9f64-565cf6e223f0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      324,
+      89
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      324,
+      89
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

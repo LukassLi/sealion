@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "an_chengren",
+    "texture": "a724bf3e-8334-4321-8882-aa7819e466d6",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      191,
+      105
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      191,
+      105
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

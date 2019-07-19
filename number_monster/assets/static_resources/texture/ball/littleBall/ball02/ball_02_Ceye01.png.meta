@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "877f7660-7ad8-4fb1-9e21-12042626616a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "ball_02_Ceye01": {
+      "ver": "1.0.4",
+      "uuid": "7895595f-88a2-49a8-aa81-7597d7ebe53e",
+      "rawTextureUuid": "877f7660-7ad8-4fb1-9e21-12042626616a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 18,
+      "height": 8,
+      "rawWidth": 18,
+      "rawHeight": 8,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
