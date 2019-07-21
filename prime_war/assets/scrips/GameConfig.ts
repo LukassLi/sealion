@@ -232,6 +232,7 @@ function keyToInt(key: string): number {
     return Number(str);
 }
 
+
 export default {
     getCreatInformation,
     getOddsInformation,

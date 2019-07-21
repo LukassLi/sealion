@@ -32,7 +32,7 @@ export default class CreatBall extends cc.Component {
     private _ballPool = {};
 
     /** 舞台里的球 */
-    private _stageBalls:cc.Node[] = [];
+    private _stageBalls:Ball[] = [];
 
     /** 疯狂球对象池 */
     private crazyPool: Ball[] = [];
@@ -217,7 +217,7 @@ export default class CreatBall extends cc.Component {
         const ball = this.createNewBall(num,v);
         const node = ball.node;
         node.position = pos;
-        const seq = cc.sequence(cc.delayTime(0.5),cc.callFunc(()=>{this.stageBalls.push(node)}));
+        const seq = cc.sequence(cc.delayTime(0.5),cc.callFunc(()=>{this.stageBalls.push(ball)}));
         node.runAction(seq);
         // return node;
     }
@@ -324,7 +324,7 @@ export default class CreatBall extends cc.Component {
      */
     private ballBirth(ballnum: number) {
         const ball = this.getBall(ballnum);
-        this.stageBalls.push(ball.node)
+        this.stageBalls.push(ball)
 
         // 随机球的生成位置
         const width = ball.node.getContentSize().width;

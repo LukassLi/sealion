@@ -22,39 +22,42 @@ export default class GameCtrl extends GameView {
     /**
      * 加分
      */
-    public set addScore(num: number) {
-        this._score += num;
-
-        // 疯狂模式不需要更新这些
-        if (!this.crazy) {
-            if (this._score > this.speedUpdateTarget) {
-                this.updateCreatRate();
-            }
-            if (this._score > this.oddsUpdateTarget) {
-                this.updateballOdds();
-            }
-            if (this._score > this.gravityUpdateTarget) {
-                this.updateGravity();
-            }
-            this.updateCreazy();
+    public addScore(num: number) {
+        // this._score += num;
+        let currentScore = this.scoreCtrl.score+num;
+        if(currentScore<0){
+            currentScore = 0;
         }
+        // // 疯狂模式不需要更新这些
+        // if (!this.crazy) {
+        //     if (this._score > this.speedUpdateTarget) {
+        //         this.updateCreatRate();
+        //     }
+        //     if (this._score > this.oddsUpdateTarget) {
+        //         this.updateballOdds();
+        //     }
+        //     if (this._score > this.gravityUpdateTarget) {
+        //         this.updateGravity();
+        //     }
+        //     this.updateCreazy();
+        // }
 
         // 展示分数
         const scoreDisplay = cc.sequence([
             cc.delayTime(1),
             cc.callFunc(() => {
-                this.scoreLable.string = this._score.toString();
+                this.scoreCtrl.score = currentScore;
             }),
         ]);
         this.node.runAction(scoreDisplay);
     }
 
-    /**
-     * 获取分数
-     */
-    public get Score() {
-        return this._score;
-    }
+    // /**
+    //  * 获取分数
+    //  */
+    // public get Score() {
+    //     return this._score;
+    // }
 
     public set physicsManagerEnable(enabled: boolean) {
         if (this.physicsManager.enabled == enabled) {
@@ -123,22 +126,6 @@ export default class GameCtrl extends GameView {
      */
     public get crazy() {
         return this.crazyFlag;
-    }
-
-    /**
-     * 设置疯狂模式
-     */
-    public set crazy(flag: boolean) {
-        this.crazyFlag = flag;
-        this.creatBall.stopCreat();
-        if (flag) {
-            this.initCreazy();
-        } else {
-            this.creazyCutout();
-        }
-
-        const str = flag ? "crazy_start" : "crazy_end";
-        // RootNode.instance.gameLog.recordAction(str);
     }
 
     /**
@@ -211,6 +198,8 @@ export default class GameCtrl extends GameView {
         this.physicsManager = cc.director.getPhysicsManager();
         this.physicsManager.enabled = true;
         cc.PhysicsManager.POSITION_ITERATIONS = 20;
+
+        this.page = RootNode.currentPage;
     }
 
     public start() {
@@ -252,10 +241,6 @@ export default class GameCtrl extends GameView {
         this.updateRevivalTime();
     }
 
-    public update() {
-       
-    }
-
     /**
      * 暂停
      */
@@ -275,18 +260,6 @@ export default class GameCtrl extends GameView {
     }
 
     /**
-     * 疯狂模式延迟设置
-     * @param flag 是否疯狂模式
-     * @param delay 延迟时间
-     */
-    public crazyDelay(flag: boolean, delay: number = 0) {
-        const callback = () => {
-            this.crazy = flag;
-        };
-        this.scheduleOnce(callback, delay);
-    }
-
-    /**
      * 游戏继续
      */
     public continue() {
@@ -298,7 +271,7 @@ export default class GameCtrl extends GameView {
      */
     public replay() {
         // MySound.instance.playAudio(AudioType.Button);
-        this._score = 0;
+        this.scoreCtrl.score = 0;
         this.updateRevivalTime();
 
         // 如果有新手引导结束新手引导
@@ -322,7 +295,6 @@ export default class GameCtrl extends GameView {
     public gameOver(delayTime: number = 0) {
         this.topStrip.stopJudgment();
         this.creatBall.stopCreat();
-        // this.setballDie();
         this.physicsManager.enabled = false;
         this.maskFadeIn();
         const seq = cc.sequence([
@@ -400,18 +372,6 @@ export default class GameCtrl extends GameView {
         this.maskPanl.runAction(action);
     }
 
-    /**
-     * 底部碰撞体点坐标转换到游戏面板
-     */
-    private pointsTransformationGamePanel() {
-        const arr = this.bottomCollider.points;
-        const pos = this.bottomCollider.node.position;
-        for (let i = 0; i < arr.length; i++) {
-            const point = arr[i].clone();
-            point.addSelf(pos);
-            this.bottomPoints.push(point);
-        }
-    }
 
     /**
      * 监听手指移动
@@ -435,9 +395,14 @@ export default class GameCtrl extends GameView {
                 const ball = balls[i];
                 const radius = ball.getComponent(cc.CircleCollider).radius;
                 const pos = this.ballStage.convertToNodeSpaceAR(touch.getLocation());
-                if (ball.position.sub(pos).mag() <= radius) {
-                    this.ballsCtrl.splitBall(ball.getComponent(Ball));
-                    ball.getComponent(Ball).remove();
+                if (ball.node.position.sub(pos).mag() <= radius) {
+                    if(this.page.split(ball)){
+                        this.ballsCtrl.splitBall(ball);
+                        ball.remove();
+                    } else {
+                        // todo球透明化
+                    }
+                  
                 }
             }
         });
@@ -450,6 +415,10 @@ export default class GameCtrl extends GameView {
                 this.knife.node.active = false;
             }
         });
+
+        this.btnPause.on('click',()=>{
+            // TODO
+        })
     }
 
     /**
@@ -482,8 +451,6 @@ export default class GameCtrl extends GameView {
     private gameInit() {
         RootNode.instance.triggerGC();
         this._crazyTarget = 0;
-        // this.creatBall.crazyTriggerScore = undefined;
-        // this.updateCreazy();
         this.updateCreatRate();
         this.updateballOdds();
         this.updateGravity();
@@ -514,7 +481,7 @@ export default class GameCtrl extends GameView {
      * 根据分数更新球生成速度
      */
     private updateCreatRate() {
-        const speedArr = GameConfig.getCreatInformation(this._score);
+        const speedArr = GameConfig.getCreatInformation(this.scoreCtrl.score);
         this.speedUpdateTarget = speedArr[1];
         this.creatBall.creatRate = speedArr[0];
     }
@@ -523,7 +490,7 @@ export default class GameCtrl extends GameView {
      * 根据分数更新重力,用于控制下落速度
      */
     private updateGravity() {
-        const grivityArr = GameConfig.getGravityInformation(this._score);
+        const grivityArr = GameConfig.getGravityInformation(this.scoreCtrl.score);
         this.gravityUpdateTarget = grivityArr[1];
         this.physicsManager.gravity = new cc.Vec2(0, -grivityArr[0]);
     }
@@ -534,161 +501,12 @@ export default class GameCtrl extends GameView {
     private updateballOdds() {
         // 数组的第一个是当前的概率
         // 第二个是下一阶段的分数
-        const oddsArr = GameConfig.getOddsInformation(this._score);
+        const oddsArr = GameConfig.getOddsInformation(this.scoreCtrl.score);
         this.oddsUpdateTarget = oddsArr[1];
         this.creatBall.updateOddsMap(oddsArr[0]);
     }
 
-    /**
-     * 根据分数进入Crazy模式
-     */
-    private updateCreazy() {
-        // 生成球正在判断中,等判断结束,再更新
-        if (this.creatBall.crazyTriggerScore != undefined) {
-            return;
-        }
-        if (this._crazyTarget > this._score) {
-            return;
-        }
-        const creazyArr = GameConfig.getCrazyInformation(this._score);
-        this._crazyTarget = creazyArr[0];
-        this.creatBall.crazyTriggerScore = creazyArr[0];
-
-        // 解析值 20|50|20%|0.75|1250|1:4%,2:4%,3:4%,4:4%,5:80%,6:1%,7:1%,8:1%,9:1% 持续时间 合成得分 概率 重力 球生成概率
-        const value = creazyArr[1].replace("%", "");
-        const arr = value.split("|");
-        this.crazyDuration = arr[0];
-        this.creatBall.crazyTriggerOdds = arr[2] / 100;
-    }
-
-    /**
-     * 疯狂模式初始化
-     */
-    private initCreazy() {
-        // 进场动画
-        this.playAnimation(this.crazyCutToPrefab);
-        // MySound.instance.playAudio(AudioType.CrazyFive);
-        const action = cc.sequence(
-            // 7帧最亮的时候,清理球
-            cc.delayTime(7 / 30),
-            cc.callFunc(() => {
-                this.clearBall();
-                this.crazyUiChange();
-            }),
-            // 切换动画播放后,开始疯狂模式
-            cc.delayTime(23 / 30),
-            cc.callFunc(() => {
-                this.creazyProgress();
-                this.creazyCutIn();
-            }),
-        );
-        this.node.runAction(action);
-    }
-
-    /**
-     * 疯狂模式切入
-     */
-    private creazyCutIn() {
-        // 解析值 20|50|20%|0.75|1250|1:4%,2:4%,3:4%,4:4%,5:80%,6:1%,7:1%,8:1%,9:1% 持续时间 合成得分 概率 重力 球生成概率
-        const value = GameConfig.getcrazyInitValue(this.Score);
-        const arr = value.split("|");
-        this.crazyComboAdd = parseInt(arr[1]);
-        this.creatBall.creatRate = Number(arr[3]);
-        this.physicsManager.gravity = new cc.Vec2(0, -arr[4]);
-        this.creatBall.updateOddsMap(arr[5]);
-        this.creatBall.initCreat();
-        this.topStrip.endJudgment();
-    }
-
-    /**
-     * 疯狂模式退出
-     */
-    private creazyCutout() {
-        // 疯狂模式结束,防止合球
-        this.maskPanl.active = true;
-        this.maskPanl.opacity = 1;
-
-        // 停掉死亡检测
-        this.topStrip.stopJudgment();
-        this.playAnimation(this.crazyCutOutPrefab);
-        this.crazyProgressNode.active = false;
-        const action = cc.sequence(
-            // 14帧最亮的时候,清理球
-            cc.delayTime(14 / 30),
-            cc.callFunc(() => {
-                this.clearBall();
-                this.creatBall.crazyPoolClear();
-                this.crazyUiChange();
-            }),
-
-            // 切换动画播放后,正常游戏
-            cc.delayTime(8 / 30),
-            cc.callFunc(() => {
-                this.maskPanl.active = false;
-                this.gameInit();
-                this.physicsManager.enabled = true;
-            }),
-        );
-        this.node.runAction(action);
-    }
-
-    /**
-     * 疯狂模式进度条
-     */
-    private creazyProgress() {
-        const time = this.crazyDuration;
-        this.crazyProgressNode.active = true;
-        const bar = this.crazyProgressNode.children[0];
-        const sprite = bar.getComponent(cc.Sprite);
-
-        bar.stopAllActions();
-        sprite.spriteFrame = this.barImArr[0];
-        bar.scale = 1;
-        const action = cc.sequence(
-            cc.scaleTo(time * 0.75, 0.25, 1),
-            cc.callFunc(() => {
-                sprite.spriteFrame = this.barImArr[1];
-            }),
-            cc.scaleTo(time * 0.25, 0, 1),
-            cc.callFunc(() => {
-                this.crazyProgressNode.active = false;
-                this.crazy = false;
-            }),
-        );
-        bar.runAction(action);
-    }
-
-    /**
-     * 疯狂模式切换,ui改变
-     */
-    private crazyUiChange() {
-        const num = this.crazy ? 1 : 0;
-        // 界面的设置
-        this.gamePanl.getComponent(cc.Sprite).spriteFrame = this.gameBgImArr[num];
-        this.topSprte.spriteFrame = this.topPauseImArr[num];
-        this.bottomCollider.node.getComponent(cc.Sprite).spriteFrame = this.bottomImArr[num];
-        this.bgFitSprite.spriteFrame = this.bgFitImArr[num];
-        const topNode = this.topStrip.node;
-        topNode.getComponent(cc.Sprite).spriteFrame = this.topImArr[num];
-
-        const positionY = this.crazy ? 450 : 500;
-        topNode.setPosition(0, positionY);
-
-        // MySound.instance.setCrazyBgm(this.crazy);
-    }
-
-    // /**
-    //  * 死亡闭眼
-    //  */
-    // private setballDie() {
-    //     let childs = this.getGamePanelBall();
-    //     let length = childs.length;
-    //     for (let i = 0; i < length; i++) {
-    //         let ball = childs[i];
-    //         ball.setEyeState(EyeState.die);
-    //     }
-    // }
-
+  
     /**
      * 界面上的球清理
      */

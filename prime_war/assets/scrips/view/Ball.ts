@@ -97,41 +97,41 @@ export default class Ball extends cc.Component {
         return this.rigid.linearVelocity;
     }
 
-    /**
-     * 设置点击选中,可以移动
-     */
-    private set beChoosed(enabled: boolean) {
-        if (this._onSelect == enabled) {
-            return;
-        }
-        this._onSelect = enabled;
-        if (enabled) {
-            this.rigid.gravityScale = 0;
-            this.rigid.linearVelocity = cc.Vec2.ZERO;
-            this.ballNode.opacity = 127;
-            this.group = "touch";
-            GameCtrl.instance.slectBall = this;
-            GameCtrl.instance.triggerBall = undefined;
-            // this.setEyeState(EyeState.close);
-            this.collider.tag = ColliderType.Slect;
-        } else {
-            this.rigid.enabledContactListener = true;
-            this.subPos = undefined;
-            this.rigid.gravityScale = 1;
-            this.rigid.linearVelocity = new cc.Vec2(0, 1);
-            this.group = "ball";
-            this.ballNode.opacity = 255;
+    // /**
+    //  * 设置点击选中,可以移动
+    //  */
+    // private set beChoosed(enabled: boolean) {
+    //     if (this._onSelect == enabled) {
+    //         return;
+    //     }
+    //     this._onSelect = enabled;
+    //     if (enabled) {
+    //         this.rigid.gravityScale = 0;
+    //         this.rigid.linearVelocity = cc.Vec2.ZERO;
+    //         this.ballNode.opacity = 127;
+    //         this.group = "touch";
+    //         this._gameCtrl.slectBall = this;
+    //         this._gameCtrl.triggerBall = undefined;
+    //         // this.setEyeState(EyeState.close);
+    //         this.collider.tag = ColliderType.Slect;
+    //     } else {
+    //         this.rigid.enabledContactListener = true;
+    //         this.subPos = undefined;
+    //         this.rigid.gravityScale = 1;
+    //         this.rigid.linearVelocity = new cc.Vec2(0, 1);
+    //         this.group = "ball";
+    //         this.ballNode.opacity = 255;
 
-            // 没有被回收,才触发touch
-            if (!this.isResume) {
-                GameCtrl.instance.ballsCtrl.touchEnd();
-            }
-            GameCtrl.instance.slectBall = undefined;
-            // this.setEyeState(EyeState.open);
-        }
-        this.setIndex(enabled);
-        this.collider.apply();
-    }
+    //         // 没有被回收,才触发touch
+    //         if (!this.isResume) {
+    //             this._gameCtrl.ballsCtrl.touchEnd();
+    //         }
+    //         this._gameCtrl.slectBall = undefined;
+    //         // this.setEyeState(EyeState.open);
+    //     }
+    //     this.setIndex(enabled);
+    //     this.collider.apply();
+    // }
 
     /**
      * 设置球的状态,选中时不能旋转,可以碰撞的物体变动
@@ -147,18 +147,15 @@ export default class Ball extends cc.Component {
     @property({ type: cc.Node, visible: true, displayName: "球节点" })
     public ballNode: cc.Node = undefined;
 
-    // @property({ type: [cc.SpriteFrame], visible: true, displayName: "眼睛图片" })
-    // public eyeSpriteFrameArr: Array<cc.SpriteFrame> = [];
-
-    // @property({ type: [cc.Sprite], visible: true, displayName: "眼睛" })
-    // public eyeSpriteArr: Array<cc.Sprite> = [];
-
     /** 球的数字*/
     public ballNum: number = undefined;
 
     /** 是否为疯狂模式的5 */
     public crazyBall: boolean = false;
-    private _ballCtrl: BallsCtrl = undefined;
+    // private _ballCtrl: BallsCtrl = undefined;
+
+    private _gameCtrl:GameCtrl = undefined;
+
     @property({ type: cc.Node, visible: true, displayName: "底" })
     private bottomNode: cc.Node = undefined;
 
@@ -207,7 +204,8 @@ export default class Ball extends cc.Component {
     private isResume: boolean = false;
 
     public start() {
-        this._ballCtrl = BallsCtrl.getInstance();
+        // this._ballCtrl = BallsCtrl.getInstance();
+        this._gameCtrl = GameCtrl.instance;
         this.addEventListener();
         if (DebugSettings.debugNormal) {
             console.log(`rigid_active=${this.rigid.active}`);
@@ -251,6 +249,8 @@ export default class Ball extends cc.Component {
 
     public onCollisionEnter(other, self) {
         if(other.node.group == 'bottom'){
+            const score = -this.ballNum;
+            this._gameCtrl.addScore(score);
             this.remove();
         }
         // if (DebugSettings.debugCollision) {
@@ -272,7 +272,7 @@ export default class Ball extends cc.Component {
      * @param touchPos 移动点的位置
      */
     public movePos(touchPos: cc.Vec2) {
-        const flag = cc.Intersection.pointInPolygon(touchPos, GameCtrl.instance.bottomPoints);
+        const flag = cc.Intersection.pointInPolygon(touchPos,this._gameCtrl.bottomPoints);
         // 是否超出可移动区域
         if (flag || Math.abs(touchPos.x) > 360) {
             // 超出的第一个点保留,球才能移动到目标位置
@@ -338,7 +338,7 @@ export default class Ball extends cc.Component {
     /** 恢复原始状态 */
     public resume() {
         this.isResume = true;
-        this.beChoosed = false;
+        // this.beChoosed = false;
         this.setTrigger = false;
         this.node.stopAllActions();
         this.node.opacity = 255;
@@ -389,18 +389,22 @@ export default class Ball extends cc.Component {
             this._onSelect = true;
         });
 
-        this.node.on(cc.Node.EventType.TOUCH_END, (e) => {  
+        this.node.on(cc.Node.EventType.TOUCH_END, (e) => {
             if (DebugSettings.debugEvent) {
                 console.log("touch end on ball");
             }
-            if(GameCtrl.instance.knife.node.active){
-                GameCtrl.instance.knife.node.active = false;
+            if(this._gameCtrl.knife.node.active){
+                this._gameCtrl.knife.node.active = false;
             }
             if (!this._onSelect) {
                 return;
             }
             this._onSelect = false;
-            this.remove();
+            if(this._gameCtrl.page.touch(this)){
+                this.remove();
+            }else {
+                // 球变透明
+            }
         });
     }
 
@@ -492,7 +496,7 @@ export default class Ball extends cc.Component {
     private updateTriggerBall() {
         // 大球暂时不检测触发
         if (this.ballNum > 10) {
-            GameCtrl.instance.triggerBall = undefined;
+            this._gameCtrl.triggerBall = undefined;
             return;
         }
 
@@ -503,13 +507,13 @@ export default class Ball extends cc.Component {
             return;
         }
         const ball = this.getTriggerBall();
-        const triggerBall = GameCtrl.instance.triggerBall;
+        const triggerBall = this._gameCtrl.triggerBall;
         if (triggerBall) {
             if (triggerBall == ball) {
                 return;
             }
         }
-        GameCtrl.instance.triggerBall = ball;
+        this._gameCtrl.triggerBall = ball;
     }
 
     /**
@@ -521,11 +525,11 @@ export default class Ball extends cc.Component {
             return undefined;
         }
 
-        const ballArr = GameCtrl.instance.getGamePanelBall();
+        const ballArr = this._gameCtrl.getGamePanelBall();
 
         // //如果是引导下触发的球只有一个
-        // if (GameCtrl.instance.guide) {
-        //     ballArr = GameCtrl.instance.guide.ballOperate;
+        // if (this._gameCtrl.guide) {
+        //     ballArr = this._gameCtrl.guide.ballOperate;
 
         //     //引导模式下,移动球也需要是触发球
         //     if (ballArr.indexOf(this) == -1)
@@ -564,7 +568,7 @@ export default class Ball extends cc.Component {
 
     /** 移除球 */
     public remove(){
-        CreatBall.instance.stageBalls.remove(this.node);
+        CreatBall.instance.stageBalls.remove(this);
         this.node.removeFromParent();
     }
 }

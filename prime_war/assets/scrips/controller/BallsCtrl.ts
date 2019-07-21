@@ -7,10 +7,10 @@ import { comboSpeed } from "../GameConfig";
 import MySound, { AudioType } from "../MySound";
 import RootNode from "../RootNode";
 import Ball from "../view/Ball";
-import ComBo from "../view/ComBo";
 import CreatBall from "./CreateBall";
 import GameCtrl from "./GameCtrl";
 import { DebugSettings } from '../util/DebugSettings';
+import ComBoView from "../view/ComBoView";
 
 const { ccclass, property } = cc._decorator;
 
@@ -33,34 +33,34 @@ export default class BallsCtrl {
     private tenArr: cc.Node[] = [];
 
     /** comBo对象池 */
-    private comBoArr: ComBo[] = [];
+    private comBoArr: ComBoView[] = [];
 
 
-    /**
-     * 选中球,手指停止触碰处理
-     */
-    public touchEnd() {
-        if (!this.isCrazeTriggerBallValidAdd()) { return; }
-        const triggerBall = GameCtrl.instance.triggerBall;
-        const moveBall = GameCtrl.instance.slectBall;
-        const num = triggerBall.ballNum + moveBall.ballNum;
+    // /**
+    //  * 选中球,手指停止触碰处理
+    //  */
+    // public touchEnd() {
+    //     if (!this.isCrazeTriggerBallValidAdd()) { return; }
+    //     const triggerBall = GameCtrl.instance.triggerBall;
+    //     const moveBall = GameCtrl.instance.slectBall;
+    //     const num = triggerBall.ballNum + moveBall.ballNum;
 
-        // 疯狂模式不能大于15
-        if (num > 15 && GameCtrl.instance.crazy) { return; }
-        if (num != 10) { this.addNormal(num); }
-        else { this.addTen(); }
-        this.ballAddDisappear(triggerBall);
-        const pos = triggerBall.node.position;
-        this.moveAddDisappear(moveBall, pos);
-        GameCtrl.instance.triggerBall = undefined;
+    //     // 疯狂模式不能大于15
+    //     if (num > 15 && GameCtrl.instance.crazy) { return; }
+    //     if (num != 10) { this.addNormal(num); }
+    //     else { this.addTen(); }
+    //     this.ballAddDisappear(triggerBall);
+    //     const pos = triggerBall.node.position;
+    //     this.moveAddDisappear(moveBall, pos);
+    //     GameCtrl.instance.triggerBall = undefined;
 
-        // //记录合并
-        // RootNode.instance.gameLog.recordAction('c', triggerBall.ballNum, moveBall.ballNum);
+    //     // //记录合并
+    //     // RootNode.instance.gameLog.recordAction('c', triggerBall.ballNum, moveBall.ballNum);
 
-        // //引导
-        // if (GameCtrl.instance.guide)
-        //     GameCtrl.instance.guide.nextGuide(1);
-    }
+    //     // //引导
+    //     // if (GameCtrl.instance.guide)
+    //     //     GameCtrl.instance.guide.nextGuide(1);
+    // }
 
     /**
      * 选中球双击处理
@@ -123,31 +123,6 @@ export default class BallsCtrl {
         //     }
         //     return false;
         // }
-        return true;
-    }
-
-    /**
-     * 是否为有效的疯狂模式触发球相加
-     */
-    private isCrazeTriggerBallValidAdd(): boolean {
-        const triggerBall = GameCtrl.instance.triggerBall;
-        const moveBall = GameCtrl.instance.slectBall;
-        if (triggerBall == undefined) { return false; }
-        // 有触发球
-        if (GameCtrl.instance.creatBall.crazyTrigerBall) {
-            // 判断的两球中有触发球
-            if (triggerBall.crazyBall || moveBall.crazyBall) {
-                // 不为10 均为无效
-                if (triggerBall.ballNum + moveBall.ballNum != 10) { return false; }
-                // 等到合10特效结束,触发疯狂模式
-                else {
-                    // 合了疯狂球就立刻结束判断,等待进入疯狂模式
-                    GameCtrl.instance.topStrip.stopJudgment();
-
-                    GameCtrl.instance.crazyDelay(true, 38 / 30);
-                }
-            }
-        }
         return true;
     }
 
@@ -231,20 +206,6 @@ export default class BallsCtrl {
         //     ballNode.parent = GameCtrl.instance.guide.node;
     }
 
-    /**
-     * 相加等于10
-     */
-    private addTen() {
-        if (GameCtrl.instance.crazy) { GameCtrl.instance.addScore = GameCtrl.instance.crazyComboAdd; }
-        else {
-            this.combo++;
-            if (this.combo > 10) { this.combo = 10; }
-            GameCtrl.instance.addScore = this.combo * 10;
-        }
-        const pos = GameCtrl.instance.triggerBall.node.position;
-        this.creatTen(pos);
-        this.creatCombo(pos);
-    }
 
     /**
      * 10球生成 25为帧数 30为帧率
@@ -283,12 +244,12 @@ export default class BallsCtrl {
         else if (this.combo == 10) { MySound.instance.playAudio(AudioType.ComboTen, 20 / 30); }
         else if (this.combo > 1) { MySound.instance.playAudio(AudioType.ComboGood, 20 / 30); }
         const instance = GameCtrl.instance;
-        let combo: ComBo;
+        let combo: ComBoView;
         let node: cc.Node;
         if (this.comBoArr.length > 0) { combo = this.comBoArr.pop(); }
         else {
             node = cc.instantiate(instance.comBoPre);
-            combo = node.getComponent(ComBo);
+            combo = node.getComponent(ComBoView);
         }
         const recover = cc.sequence([
             cc.delayTime(38 / 30),

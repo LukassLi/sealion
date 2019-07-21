@@ -1,4 +1,5 @@
 import { DebugSettings } from './util/DebugSettings';
+import BasePage from './page/BasePage';
 
 const { ccclass, property } = cc._decorator;
 
@@ -19,6 +20,9 @@ export default class RootNode extends cc.Component {
 
     /** 当前scene */
     public static currentScene: string = "";
+
+    /** 当前page */
+    public static currentPage:BasePage = undefined;
 
     /** 游戏配置 */
     private _config: any = undefined;

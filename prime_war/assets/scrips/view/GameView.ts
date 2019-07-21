@@ -6,6 +6,12 @@
 import TopStrip from "../controller/TopStrip";
 import CreatBall from '../controller/CreateBall';
 import Knife from './Knife';
+import PauseView from "./PauseView";
+import FinishView from "./FinishView";
+import ScoreView from "./ScoreView";
+import ComBoView from "./ComBoView";
+import BasePage from "../page/BasePage";
+// import BasePage from "../pattern/BasePattern";
 // import Charts from "../controller/Charts";
 
 const { ccclass, property } = cc._decorator;
@@ -119,6 +125,23 @@ export default class GameView extends cc.Component {
 
     @property({ type: cc.Node, visible: true, displayName: "背景" })
     public bg: cc.Node = undefined;
+
+    @property({ type: PauseView, visible: true, displayName: "暂停面板" })
+    public pausePanel:PauseView = undefined;  
+
+    @property({ type: FinishView, visible: true, displayName: "结束面板" })
+    public finishPanel:FinishView = undefined;
+
+    @property({ type: cc.Node, visible: true, displayName: "暂停按钮" })
+    public btnPause:cc.Node = undefined;
+
+    @property({ type: ScoreView, visible: true, displayName: "记分器" })
+    public scoreCtrl:ScoreView = undefined;
+
+    @property({ type: ComBoView, visible: true, displayName: "连击" })
+    public comboCtrl:ComBoView = undefined;
+
+    public page:BasePage = undefined;
 
     public creatBall: CreatBall = undefined;
 
