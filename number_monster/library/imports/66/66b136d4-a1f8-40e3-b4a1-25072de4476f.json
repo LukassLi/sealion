@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "guide_05",
+    "texture": "a08bfc49-21bb-40c2-bfaf-07e15f0b760f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      569,
+      374
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      569,
+      374
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

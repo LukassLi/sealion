@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "logo_ertingban",
+    "texture": "88fe42a5-192d-4085-94b0-91f17ad72558",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      537,
+      99
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      537,
+      99
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Crazy5_pic01",
+    "texture": "868f3659-f682-467b-99f0-4e280bc30eb9",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      536,
+      536
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      536,
+      536
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

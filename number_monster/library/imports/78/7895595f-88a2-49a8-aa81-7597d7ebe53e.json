@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ball_02_Ceye01",
+    "texture": "877f7660-7ad8-4fb1-9e21-12042626616a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      18,
+      8
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      18,
+      8
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

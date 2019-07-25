@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hand_skew",
+    "texture": "640f881b-7a18-4083-ae59-6f7ec6226b1b",
+    "atlas": "",
+    "rect": [
+      0,
+      15,
+      132,
+      176
+    ],
+    "offset": [
+      -1,
+      -7.5
+    ],
+    "originalSize": [
+      134,
+      191
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

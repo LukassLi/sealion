@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "crazyball_05_mouth01",
+    "texture": "9dd07686-e5d6-45ba-bd60-30987b05e6a9",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      108,
+      56
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      108,
+      56
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
