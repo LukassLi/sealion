@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 maira hhaha jojo
+=======
+maira hhaha titi
+>>>>>>> d5e68de28a686ae79cf9467e89c3b5e5c07c1cfb
