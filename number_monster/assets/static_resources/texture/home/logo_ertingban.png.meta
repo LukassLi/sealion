@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "88fe42a5-192d-4085-94b0-91f17ad72558",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "logo_ertingban": {
+      "ver": "1.0.4",
+      "uuid": "011e0824-a030-42df-adab-94de6c9c063c",
+      "rawTextureUuid": "88fe42a5-192d-4085-94b0-91f17ad72558",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 537,
+      "height": 99,
+      "rawWidth": 537,
+      "rawHeight": 99,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

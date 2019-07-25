@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_game_charts",
+    "texture": "2aa1aa68-e200-465b-8d96-ee55aaa97809",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      85,
+      87
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      85,
+      87
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

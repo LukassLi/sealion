@@ -1,0 +1,1 @@
+git diff -U10000 --no-index %1 %2 | diff2html -i stdin -s side

@@ -1,0 +1,73 @@
+计划：
+-生成球ok
+-触摸生成线段ok
+-用线段分割球ok
+-刀碰球，球消失ok
+-不同模式的UI ok
+-分数计算 doing
+1.如果是质数：点击加分，刀切扣分，
+2.如果不是质数：点击扣分，刀切不扣不加并且转化为两个数相乘
+（这两个数取决于配置表，暂不操作）
+3.不管什么数：没有进行操作就掉到底部则扣分
+4.加分扣分都是球上的数
+-血量减扣
+-球的发射方向，数值配置，颜色，数值触发逻辑
+-用户存储
+-适配手机端
+
+this.fromArr = this.oddsArr.slice(0); // why to do slice(0)
+b Portrait--> 这个是竖屏展示；
+Upside Down--> 这个是手机竖屏，但是你的手机需要倒过来；
+Landscape Left--> 这个是横屏，屏幕在home键左边；（常用的）
+Landscape Right--> 这个也是横屏，屏幕在home右边。
+
+
+gamePanel需要赋值
+setNum、resum 等 ball的一些列函数
+
+同步方式1.加回调 2.在update里执行 3.先执行完
+hierarchy 层级
+invoke 引用调用
+bit 小块
+更新项目或者copy项目要重新设置物理碰撞组
+collisionMatrix 碰撞分组配对矩阵
+
+生命周期是否是回调流程的封装，或者干脆是两种形式？
+
+this.schedule(callback,dt...)/unschedule();
+异步调度一个回调函数
+画线可以用rapheal组件的path
+添加blockEventInput可以进行遮挡
+
+动画可以监听结束状态：
+ // const en = this.node.getComponent(cc.Animation);
+            // const na = this.node.name;
+            // en.play(na + "_des"); // 播放动画
+            // en.on(
+            //     "finished",
+            //     function(e) {
+            //         this.node.removeFromParent();
+            //     },
+            //     this,
+            // );
+
+applyLinearImpulse 附加一个冲量
+
+createball是ball的工厂，应该由ballctrl控制？
+工厂模式是创建对象的最佳方式，因为它只提供接口而不暴露逻辑
+collider.tag 判断是哪个碰撞组件触发了，估计用于调试？
+孤节点是指没用绑定事件或者action的节点？
+cc.find('Canvas').emit('hit-good-apple'); 发射事件
+physics collider 用来制造物理效果
+collider用于检测碰撞
+physics collider必须和physics collider 进行碰撞检测吗？
+添加一个冲力有bug,改用速度设置
+看上去是用刀切，实际上是用触摸去感知是触碰还是切，游戏一定要把效果和逻辑分开考虑
+用冒泡处理事件触发
+createBall 为什么要在start里触发
+
+touch start on ball
+touch start on gamepanel
+touch move on gamepanel
+touch end on ball
+为什么touchend不会出现

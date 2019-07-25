@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ball_14_shadow",
+    "texture": "144bb1a8-d19c-44db-9eeb-adddbb65dfc1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      677,
+      632
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      677,
+      632
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

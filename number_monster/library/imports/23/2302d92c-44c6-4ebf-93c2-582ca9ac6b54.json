@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg_crazy",
+    "texture": "a4056460-75ed-409c-b1e0-4ebd0dc1635f",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      272,
+      273
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      274,
+      273
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "input": "5+5×99",
+  "comment": "",
+  "scenes": [
+    {
+      "id": 0,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "add_tokens",
+          "value": [
+            "5",
+            "+",
+            "5",
+            "×",
+            "99"
+          ]
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 1,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "start_explain",
+          "speech": "这题，我们计算的是"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 2,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            0
+          ],
+          "speech": "5"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 3,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            1,
+            2
+          ],
+          "speech": "加5"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 4,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            3,
+            4
+          ],
+          "speech": "乘以99"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 5,
+      "scene": "opening",
+      "animations": [
+        {
+          "type": "magnifier",
+          "speech": "计算前[p0]我们首先观察一下算式的特点"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "scene": "expression_feature",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            0
+          ]
+        },
+        {
+          "type": "highlight",
+          "indexes": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "type": "highlight",
+          "indexes": [
+            1
+          ],
+          "speech": "它由这2个部分相加组成[p300]"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 7,
+      "scene": "number_feature",
+      "animations": [
+        {
+          "type": "highlight",
+          "indexes": [
+            0,
+            2
+          ],
+          "text": "公因数",
+          "speech": "并且，每一个部分[p0]都刚好含有5"
+        }
+      ],
+      "stop": false
+    },
+    {
+      "id": 8,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "question",
+          "speech": "掌握这个信息，有什么用呢？"
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 9,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "split_number",
+          "to_tokens": [
+            "5",
+            "×",
+            "1",
+            "+",
+            "5",
+            "×",
+            "99"
+          ],
+          "from_index": 0,
+          "to_indexes": [
+            0,
+            1,
+            2
+          ],
+          "highlight_indexes": [
+            1,
+            2
+          ],
+          "speech": "我们可以把5看作5乘以1，将算式写成这样"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "explain",
+          "speech": "当然，这么做不会改变算式的结果。那么，又有什么好处呢？"
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 11,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "distributive_combine",
+          "to_tokens": [
+            "5",
+            "×",
+            "(",
+            "1",
+            "+",
+            "99",
+            ")"
+          ],
+          "from_indexes": [
+            0,
+            2
+          ],
+          "to_index": 0,
+          "move_indexes": [
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "speech": "再根据乘法分配律，就能得到这样的算式"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "scene": "transform",
+      "animations": [
+        {
+          "type": "wait_calc",
+          "speech": "现在，你能不动笔，就口算出来吗？"
+        }
+      ],
+      "stop": true
+    },
+    {
+      "id": 13,
+      "scene": "calculation",
+      "animations": [
+        {
+          "type": "step_calc",
+          "to_tokens": [
+            "5",
+            "×",
+            "100"
+          ],
+          "from_indexes": [
+            3,
+            5
+          ],
+          "to_index": 2,
+          "speech": "我们先计算1，加上99，答案是100"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "scene": "calculation",
+      "animations": [
+        {
+          "type": "step_calc",
+          "to_tokens": [
+            "500"
+          ],
+          "from_indexes": [
+            0,
+            2
+          ],
+          "to_index": 0,
+          "speech": "再计算5，乘以100，就求出来答案是500"
+        }
+      ]
+    }
+  ]
+}

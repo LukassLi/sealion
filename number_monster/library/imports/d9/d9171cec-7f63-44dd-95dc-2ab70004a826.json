@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_ subscription",
+    "texture": "107efddb-303b-474a-b1aa-8eb644fc0f1d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      85,
+      87
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      85,
+      87
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
