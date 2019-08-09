@@ -1,0 +1,28 @@
+{
+    // prettier configuration
+    "prettier.disableLanguages": ["vue"],
+    "vetur.format.defaultFormatterOptions": {
+        "prettier": {
+            "singleQuote": true,
+            "printWidth": 100,
+            "trailingComma": "es5",
+            "tslintIntegration": true,
+            "arrowParens": "always",
+            "tabWidth": 4
+        }
+    },
+    "typescript.preferences.quoteStyle": "single",
+    "prettier.tslintIntegration": true,
+    "prettier.printWidth": 100,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.arrowParens": "always",
+    "prettier.tabWidth": 4,
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
