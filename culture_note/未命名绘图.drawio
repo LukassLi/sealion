@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-20T10:17:47.334Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="4E3hfDeWN7YlV_EwM2us" version="14.1.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-20T10:56:28.297Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="xRpGMF2sR3MTQwbCc4wl" version="14.1.9" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1426" dy="718" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -13,7 +13,7 @@
         <mxCell id="FpXePf8qNYIzedHJ7Y4f-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FpXePf8qNYIzedHJ7Y4f-22" target="FpXePf8qNYIzedHJ7Y4f-39">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="FpXePf8qNYIzedHJ7Y4f-22" value="GeneralVerticalOneStepViewBehavior" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="FpXePf8qNYIzedHJ7Y4f-22" value="竖式一步白板&lt;br&gt;GeneralVerticalOneStepViewBehavior" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="100" y="490" width="220" height="80" as="geometry" />
         </mxCell>
         <mxCell id="FpXePf8qNYIzedHJ7Y4f-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FpXePf8qNYIzedHJ7Y4f-23" target="FpXePf8qNYIzedHJ7Y4f-27">
@@ -37,7 +37,7 @@
         <mxCell id="FpXePf8qNYIzedHJ7Y4f-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FpXePf8qNYIzedHJ7Y4f-32" target="FpXePf8qNYIzedHJ7Y4f-37">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="FpXePf8qNYIzedHJ7Y4f-32" value="GeneralVerticalViewBehavior" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="FpXePf8qNYIzedHJ7Y4f-32" value="竖式白板&lt;br&gt;GeneralVerticalViewBehavior" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="100" y="785" width="220" height="80" as="geometry" />
         </mxCell>
         <mxCell id="FpXePf8qNYIzedHJ7Y4f-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FpXePf8qNYIzedHJ7Y4f-34" target="FpXePf8qNYIzedHJ7Y4f-36">
@@ -56,7 +56,7 @@
           <mxGeometry x="414" y="865" width="216" height="70" as="geometry" />
         </mxCell>
         <mxCell id="FpXePf8qNYIzedHJ7Y4f-36" value="VerticalSketchViewBehavior" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="710" y="1000" width="220" height="70" as="geometry" />
+          <mxGeometry x="700" y="1000" width="220" height="70" as="geometry" />
         </mxCell>
         <mxCell id="FpXePf8qNYIzedHJ7Y4f-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FpXePf8qNYIzedHJ7Y4f-37" target="FpXePf8qNYIzedHJ7Y4f-41">
           <mxGeometry relative="1" as="geometry">
@@ -85,6 +85,15 @@
         </mxCell>
         <mxCell id="FpXePf8qNYIzedHJ7Y4f-46" value="WhiteBoardItemAnswer" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="700" y="890" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="FpXePf8qNYIzedHJ7Y4f-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FpXePf8qNYIzedHJ7Y4f-49" target="FpXePf8qNYIzedHJ7Y4f-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FpXePf8qNYIzedHJ7Y4f-49" value="竖式&lt;br&gt;GeneralVerticalBottomViewBehavior" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="100" y="1160" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FpXePf8qNYIzedHJ7Y4f-50" value="SketchViewBehavior" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="700" y="1160" width="220" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
